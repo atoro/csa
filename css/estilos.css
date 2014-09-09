@@ -1,0 +1,112 @@
+footer {
+	background: #24262d;
+	color: white;
+	padding: 40px 0;
+}
+footer .footer_dentro {
+	width: 90%;
+	margin: 0 auto;
+}
+.emagenic {
+	background-color: #292b34;
+	padding: 40px;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	font-weight: 300;
+}
+.emagenic a {
+	background-color: #292b34;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	font-weight: 300;
+	display: block;
+	text-decoration: none;
+}
+.nosotros {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 40px 0 50px 0;
+}
+.nosotros a {
+	background-color: #f55818;
+	color: white;
+	border-radius: 20px;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 10px 25px;
+	-webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+}
+.nosotros a:hover {
+	background-color: white;
+	color: #f55818;
+	border-radius: 20px;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 7px 23px;
+	border: solid 3px #f55818;
+	-webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+}
+.nosotros h1 {
+	font-size: 24px;
+	color: #205588;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.nosotros p {
+	font-size: 16px;
+	font-weight: 300;
+	color: #656871;
+	line-height: 23px;
+	margin-bottom: 30px;
+}
+.servicios {
+	background-color: #edf2f6;
+	padding: 40px 0;
+}
+.servicios .servicios_dentro {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+.servicios .servicios_dentro .servicio {
+	border: dashed 1px orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+@media only screen and (min-width: 768px) {
+
+    header {
+        background-color: #fefefe;
+        height:100px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 2;
+        position: static;
+    }   
+    header .centro_header {
+        margin: auto;
+        width: 95%;
+    }
+    header .centro_header .logo {
+        float: left;
+        padding-top: 15px;
+    }
+    header #menu ul li{
+        margin: ;
+    }
+    header #menu ul li .activo {
+        background-color: #205588;
+        border-radius: 20px;
+        color: #fff;
+        padding: 5px 10px; 
+    }
+    header #menu ul li a {
+        color: #205588;
+        padding: 0 10px;
+        font-weight: normal;
+        font-size: 16px;
+        -webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+    }
+    header #menu ul li a:hover {
+        background-color: #205588;
+        border-radius: 20px;
+        color: #fff;
+        padding: 5px 10px;
+        -webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+    }
+    .emagenic p,
+    .emagenic a {
+        display: inline-block;
+    }
+    .servicios .servicios_dentro .servicio {
+        display: inline-block;
+        vertical-align: top;
+        width: 20%;
+        margin: 0 2%;
+    }
+
+
+@media only screen and (min-width: 1100px) {
+
+    footer .footer_dentro {
+        width: 1024px;
+        margin: 0 auto;
+    }
+    header .centro_header {
+        margin: auto;
+        width: 1050px;
+    }	
+    header #menu ul {
+        font-size: 14px;
+        list-style: none;
+    }
+    header #menu ul li{
+        margin: 0 7px 0 7px;
+    }  
+    header #menu ul li a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #003366;
+        padding: 0 10px;
+        font-weight: normal;
+        -webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+    }
+    header #menu ul li a:hover {
+        background-color: #205588;
+        border-radius: 20px;
+        color: #fff;
+        padding: 5px 10px;
+        -webkit-transition: all 0.2s ease-in-out;  /* Saf3.2+, Chrome */
+         -moz-transition: all 0.2s ease-in-out;  /* FF4+ */
+           -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
+              transition: all 0.2s ease-in-out;
+    }
+    .nosotros {
+        margin: auto;
+        width: 1024px;
+    }
+    .servicios .servicios_dentro {
+        width: 1024px;
+        margin: 0 auto;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

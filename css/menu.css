@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+}
+header {
+    background-color: #fefefe;
+    height:100px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2
+}
+header .logo {
+    float: left;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+header #menu {
+    float: right;
+}   
+header #menu li {
+    display: block;
+    float: left;
+    line-height: 100px;
+    text-align: center;
+}
+header #menu li a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 8px;
+    text-decoration: none;
+}
+header #menu ul {
+    font-size: 14px;
+    list-style: none;
+}   
+header, 
+header nav {
+    display: block;
+}
+header #menu #nav-mobile{
+    background: url(../imagenes/nav.png) no-repeat center center;
+    display: none;
+    float: right;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 60px;
+}   
+header #menu #nav-mobile.nav-active{
+    opacity:0.7;
+}
+
+/* MENU */
+@media only screen and (max-width: 767px) {
+        
+    
+    header #menu {
+        float: none;
+        padding-top: 115px;
+        width: 100%;
+    }
+    header #menu li {
+        background: #205588;
+        border-bottom: 1px solid #1c4f7f;
+        color: white;
+        float: none;
+        height: 40px;
+        line-height: 40px;
+    } 
+    header #menu li a {
+        color: white;
+        line-height: 30px;
+    }
+    header #menu li a:hover {
+        color: #89898d;
+        line-height: 30px;
+    }
+    header #menu li:last-child { 
+        border-bottom: 0;
+    }
+    header #menu #nav-mobile { 
+        display: block;
+    }
+    header #menu ul {
+        box-shadow: 0 1px 2px rgba(0,0,0,.5);
+        max-height: 0;
+        overflow: hidden;
+    }            
+    header #menu ul.open-menu{
+        margin-top: -20px;
+        max-height: 400px;
+        -webkit-transition: max-height .5s;
+        -moz-transition: max-height .5s;
+        -ms-transition: max-height .5s;
+        -o-transition: max-height .5s;
+        transition: max-height .5s;
+        position: relative;
+        z-index: 200;
+    }
+    
+}
+/* fin menu */

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>CSA</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <header>
+    <div class="centro_header">
+      <div class="logo">
+        <a href="index.php">
+          <img src="imagenes/logo.png">
+        </a>
+      </div>
+      <nav id="menu">
+        <a href="#" class="nav-mobile" id="nav-mobile"></a>
+        <ul>
+          <li><a class="activo" href="index.php">Inicio</a></li>
+          <li><a href="quienessomos.php">Quienes Somos</a></li>
+          <li><a href="servicios.php">Servicios</a></li>
+          <li><a href="noticias.php">Noticias</a></li>
+          <li><a href="contacto.php">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- slide -->
+  <div id="w">
+    <div class="slider">
+      <ul class="slides">
+        <li class="slide">
+          <figure>
+            <figcaption>
+              <h2>Corte y Plegado</h2>
+              <p>Lorem upsum simply is dummy </p>
+            </figcaption>
+            <img src="imagenes/slide/1.jpg">
+          </figure>
+        </li>
+        <li class="slide">
+          <figure>
+            <figcaption>
+              <h2>Carpinteria Metálica</h2>
+              <p>Lorem upsum simply is dummy </p>
+            </figcaption>
+            <img src="imagenes/slide/1.jpg">
+          </figure>
+        </li>
+        <li class="slide">
+          <figure>
+            <figcaption>
+              <h2>Pintura Electroestatica</h2>
+              <p>Lorem upsum simply is dummy </p>
+            </figcaption>
+            <img src="imagenes/slide/1.jpg">
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <section class="nosotros">
+    <h1>Our yearly subscription fee is based on a “Named User”</h1>
+    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha 
+    sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor 
+    (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal
+    manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años</p>
+    <a href="servicios.php">VER CONTENIDO</a>
+  </section>
+
+  <section class="servicios">
+    <div class="servicios_dentro">
+      <div class="servicio">
+        servicio 1
+      </div>
+      <div class="servicio">
+        servicio 2
+      </div>
+      <div class="servicio">
+        servicio 3
+      </div>
+      <div class="servicio">
+        servicio 4
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer_dentro">
+      footer contenido
+    </div>
+  </footer>
+
+  <div class="emagenic">
+    - Todos los derechos reservados - <a href="http://www.emagenic.cl" target="new">desarrollado por emagenic.cl</a>
+  </div>
+
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.glide.min.js"></script>
+  <script type="text/javascript">
+  $(function(){
+    $('.slider').glide({
+      autoplay: 3500,
+      hoverpause: true, // set to false for nonstop rotate
+      arrowRightText: '&rarr;',
+      arrowLeftText: '&larr;'
+    });
+  });
+  </script>
+  <script>
+    $(function() {
+        var btn_movil = $('#nav-mobile'),
+            menu = $('#menu').find('ul');
+        btn_movil.on('click', function (e) {
+            e.preventDefault();
+            var el = $(this);
+            el.toggleClass('nav-active');
+            menu.toggleClass('open-menu');
+        })
+    });
+</script>
+</body>
+</html>
