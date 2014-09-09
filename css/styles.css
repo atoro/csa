@@ -118,6 +118,26 @@ img {
   .slide figure figcaption h2 {
     color: #fff;
     font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 1px 1px 2px #333;
+  }
+  .slide figure figcaption p {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #333;
+  }
+}
+
+@media only screen and (min-width: 1024px) { 
+  .slide figure figcaption h2 {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
     font-size: 80px;
     font-weight: 700;
     text-align: center;
@@ -133,3 +153,4 @@ img {
     text-shadow: 1px 1px 2px #333;
   }
 }
+
