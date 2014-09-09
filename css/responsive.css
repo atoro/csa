@@ -1,5 +1,15 @@
 @media only screen and (min-width: 768px) {
 
+    footer .footer_dentro .logo_footer {
+        float: right;
+    } 
+    footer .footer_dentro .servicios_footer {
+        width: 21%;
+        margin-right: 3%;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
     header {
         background-color: #fefefe;
         height:100px;
