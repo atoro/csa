@@ -60,11 +60,52 @@
     .emagenic a {
         display: inline-block;
     }
+    .headerimg {
+        width: 100%;
+        background-image: url(../imagenes/slide/quienessomos.jpg);
+        height: 180px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .headerimg2 {
+        width: 100%;
+        background-image: url(../imagenes/slide/contacto.jpg);
+        height: 180px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .headerimg3 {
+        width: 100%;
+        background-image: url(../imagenes/slide/servicios.jpg);
+        height: 180px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .nosotros {
+        text-align: center;
+    }
+    .nosotros form {
+        width: 70%;
+        margin: 0 auto 30px auto;
+    }
+    .nosotros .mv {
+        display:  inline-block; 
+        vertical-align: top;
+        width: 45%;
+        margin: 0 2%;
+    }
     .servicios .servicios_dentro .servicio {
         display: inline-block;
         vertical-align: top;
         width: 20%;
         margin: 0 2%;
+        margin-bottom: 40px;
     }
     .servicios .servicios_dentro .servicio .img_servicio {
         background-color: white;
