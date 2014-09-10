@@ -87,6 +87,15 @@
         -o-background-size: cover;
         background-size: cover;
     }
+    .headerimg4 {
+        width: 100%;
+        background-image: url(../imagenes/slide/noticias.jpg);
+        height: 180px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
     .nosotros {
         text-align: center;
     }
@@ -113,6 +122,22 @@
         width: 135px;
         height: 135px;
         margin: auto;
+    }
+
+    .servicios .servicios_dentro .contenido_texto {
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 20px;
+        display: inline-block;
+        width: 70%;
+        margin-left: 3%;
+    }
+    .servicios .servicios_dentro .img_detalle {
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: inline-block;
     }
 
 
