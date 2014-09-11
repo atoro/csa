@@ -71,7 +71,7 @@
   </div>
   
   <section class="nosotros">
-    <h1>CSA - Comercial San Andrés Servicios Industriales</h1>
+    <h1>CSA - Servicios Industriales</h1>
     <p>La EXPERIENCIA de nuestros técnicos nos permite ofrecer un amplio rango de productos desde la fabricación de estructuras metálicas, muebles, soportes y todo lo necesario para la EXPOSICIÓN DE PRODUCTOS. <br>
 
     La utilización de materias primas de calidad nos permite enfrentar todo tipo de proyectos en acero, Inox, aluminio, planchas de acero, plegables, terminaciones en madera, trupán, melamina, terciado, vidrio, acrílico y maderas nativas.</p>
