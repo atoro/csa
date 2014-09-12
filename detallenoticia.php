@@ -1,3 +1,22 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+  $listado = "select * from noticias where id = '$_GET[id]' ";
+  $sentencia = mysql_query($listado,$conn);
+  if($rs=mysql_fetch_array($sentencia,$mibase)){
+    $id= $rs["id"];
+    $titulo_noticia = str_replace("\r\n","<br>",$rs["titulo_noticia"]); 
+    $completo_noticia = str_replace("\r\n","<br>",$rs["completo_noticia"]);
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -41,26 +60,18 @@
   
   <section class="servicios">
     <div class="servicios_dentro">
-      <div class="noticias">
-        <div class="img_detalle">
-          <img src="imagenes/noticias/1.jpg">
-        </div>
-        <div class="contenido_texto">
-          <h3>Nombre la noticia</h3>
-          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. <br>
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      <div class="img_detalle">
+        <img src="imagenes/noticias/<?php echo $rs["id"]; ?>.jpg">
+      </div>
+      <div class="contenido_texto">
+        <h3><?php $texto = str_replace("\r\n","<br>",$rs["titulo_noticia"]); echo $texto ?></h3>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["completo_noticia"]); echo $texto ?></p>
+        <!-- REDES SOCIALES -->
+        <div style="margin-top:30px;">
+          <div class="fb-like" data-href="http://www.csaserviciosindustriales.cl/detallenoticia.php?id=<?php echo $rs["id"]; ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true" style="vertical-align: top; margin: 0 0 10px 0;"></div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.csaserviciosindustriales.cl/detallenoticia.php?id=<?php echo $_GET["id"]; ?>" data-lang="es" data-size="large" data-hashtags="CSA" data-dnt="true" style="vertical-align:top;">Twittear</a>  
         </div>
       </div>
-    
     </div>
   </section>
 
@@ -68,11 +79,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -82,9 +95,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">
@@ -149,7 +162,18 @@
         $('.headerimg4').parallax({ "coeff":-0.2 });
     })
 </script>
-<!--efecto 3D-->
+
+<!-- REDES SOCIALES -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 </body>
 </html>

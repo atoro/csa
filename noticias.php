@@ -1,3 +1,14 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -41,45 +52,22 @@
   
   <section class="servicios">
     <div class="servicios_dentro">
+      <?php 
+          $listado = "select * from noticias";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+      ?>
       <div class="noticias">
         <div class="img_detalle">
-          <img src="imagenes/noticias/1.jpg">
+          <img src="imagenes/noticias/<?php echo $rs["id"]; ?>.jpg">
         </div>
         <div class="contenido_texto">
-          <h3>Nombre la noticia</h3>
-          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-          <a href="detallenoticia.php"> VER DETALLE </a>
+          <h3><?php $texto = str_replace("\r\n","<br>",$rs["titulo_noticia"]); echo $texto ?></h3>
+          <p class="texto"><?php $texto = str_replace("\r\n","<br>",$rs["breve_noticia"]); echo $texto ?></p>
+          <a href="detallenoticia.php?id=<?php echo $rs["id"]; ?>"> VER DETALLE </a>
         </div>
       </div>
-      <div class="noticias">
-        <div class="img_detalle">
-          <img src="imagenes/noticias/2.jpg">
-        </div>
-        <div class="contenido_texto">
-          <h3>Nombre la noticia</h3>
-          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-          <a href="detallenoticia.php"> VER DETALLE </a>
-        </div>
-      </div>
-      <div class="noticias">
-        <div class="img_detalle">
-          <img src="imagenes/noticias/3.jpg">
-        </div>
-        <div class="contenido_texto">
-          <h3>Nombre la noticia</h3>
-          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-          <a href="detallenoticia.php"> VER DETALLE </a>
-        </div>
-      </div>
+      <?php } ?>
     </div>
   </section>
 
@@ -87,11 +75,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -101,9 +91,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">

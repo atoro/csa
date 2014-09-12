@@ -1,3 +1,14 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -42,94 +53,20 @@
   <section class="servicios">
     <div class="servicios_dentro">
       <h3>Servicios CSA</h3>
+      <?php 
+        $listado = "select * from servicios";
+        $sentencia = mysql_query($listado,$conn);
+        while($rs=mysql_fetch_array($sentencia,$mibase)){
+      ?>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
+          <img src="imagenes/servicios/<?php echo $rs["id"]; ?>.jpg">
         </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
+        <h2><?php $texto = str_replace("\r\n","<br>",$rs["titulo_servicio"]); echo $texto ?></h2>
+        <p class="p"><?php $texto = str_replace("\r\n","<br>",$rs["breve_servicio"]); echo $texto ?></p>
+        <a href="detalleservicio.php?id=<?php echo $rs["id"]; ?>">VER MÁS</a>
       </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
-      <div class="servicio">
-        <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
-        </div>
-        <h2>Titulo Servicio</h2>
-        <p class="p">Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
-        <a href="detalleservicio.php">VER MÁS</a>
-      </div>
+      <?php } ?>
     </div>
   </section>
 
@@ -137,11 +74,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -151,9 +90,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">

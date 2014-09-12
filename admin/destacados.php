@@ -92,8 +92,18 @@ body,td,th {
         <td width="6%">&nbsp;</td>
       </tr>
       <tr>
+        <td height="215" align="right" valign="top" class="texto"><a href="../imagenes/destacados/Upload_foto.php?id=1" class="texto">Cambiar Imagen:</a> &nbsp;</td>
+        <td valign="top"><img src="../imagenes/destacados/1.jpg" width="200" height="200"></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
         <td height="94" align="right" valign="top" class="texto"><p>Contenido 1: &nbsp;</p></td>
         <td valign="top"><textarea name="servicio1" id="nosotros5" cols="50" rows="5"><?php echo $servicio1; ?> </textarea></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="218" align="right" valign="top" class="texto"><a href="../imagenes/destacados/Upload_foto.php?id=2" class="texto">Cambiar Imagen:</a> &nbsp;</td>
+        <td valign="top"><img src="../imagenes/destacados/2.jpg" width="200" height="200"></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -102,8 +112,18 @@ body,td,th {
         <td>&nbsp;</td>
       </tr>
       <tr>
+        <td height="216" align="right" valign="top" class="texto"><a href="../imagenes/destacados/Upload_foto.php?id=3" class="texto">Cambiar Imagen:</a> &nbsp;</td>
+        <td valign="top"><img src="../imagenes/destacados/3.jpg" width="200" height="200"></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
         <td height="94" align="right" valign="top" class="texto"><p>Contenido 3: &nbsp;</p></td>
         <td valign="top"><textarea name="servicio3" id="servicio3" cols="50" rows="5"><?php echo $servicio3; ?> </textarea></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="218" align="right" valign="top" class="texto"><a href="../imagenes/destacados/Upload_foto.php?id=4" class="texto">Cambiar Imagen:</a> &nbsp;</td>
+        <td valign="top"><img src="../imagenes/destacados/4.jpg" width="200" height="200"></td>
         <td>&nbsp;</td>
       </tr>
       <tr>

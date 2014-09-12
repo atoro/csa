@@ -1,3 +1,22 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+  $listado = "select * from servicios where id = '$_GET[id]' ";
+  $sentencia = mysql_query($listado,$conn);
+  if($rs=mysql_fetch_array($sentencia,$mibase)){
+    $id= $rs["id"];
+    $titulo_servicio = str_replace("\r\n","<br>",$rs["titulo_servicio"]); 
+    $completo_servicio = str_replace("\r\n","<br>",$rs["completo_servicio"]);
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -12,6 +31,7 @@
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
   <link rel="shortcut icon" href="imagenes/icon.png">
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -42,19 +62,16 @@
   <section class="servicios">
     <div class="servicios_dentro">
       <div class="img_detalle">
-        <img src="imagenes/servicios/1.jpg">
+        <img src="imagenes/servicios/<?php echo $rs["id"]; ?>.jpg">
       </div>
       <div class="contenido_texto">
-        <h3>Nombre del Servicio</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <div class="galeria">
-          aca va la galeria
-        </div>
+        <h3><?php $texto = str_replace("\r\n","<br>",$rs["titulo_servicio"]); echo $texto ?></h3>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["completo_servicio"]); echo $texto ?></p>
+        
+
+        galeria
+
+
       </div>
     </div>
   </section>
@@ -63,11 +80,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -77,9 +96,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">
@@ -145,6 +164,49 @@
     })
 </script>
 <!--efecto 3D-->
+
+  
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquerypp.custom.js"></script>
+  <script type="text/javascript" src="js/jquery.elastislide.js"></script>
+  <script type="text/javascript">
+      
+    // example how to integrate with a previewer
+
+    var current = 0,
+      $preview = $( '#preview' ),
+      $carouselEl = $( '#carousel' ),
+      $carouselItems = $carouselEl.children(),
+      carousel = $carouselEl.elastislide( {
+        current : current,
+        minItems : 4,
+        onClick : function( el, pos, evt ) {
+
+          changeImage( el, pos );
+          evt.preventDefault();
+
+        },
+        onReady : function() {
+
+          changeImage( $carouselItems.eq( current ), current );
+            
+        }
+      } );
+
+    function changeImage( el, pos ) {
+
+      $preview.attr( 'src', el.data( 'preview' ) );
+      $carouselItems.removeClass( 'current-img' );
+      el.addClass( 'current-img' );
+      carousel.setCurrent( pos );
+
+    }
+
+  </script>
+
+  
+
 
 </body>
 </html>

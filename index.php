@@ -1,3 +1,42 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from inicio";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_inicio = $rs["titulo_inicio"];
+    $contenido_inicio = $rs["contenido_inicio"];
+  }
+
+  $listado = "select * from slide";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_slide1 = $rs["titulo_slide1"];
+    $contenido_slide1 = $rs["contenido_slide1"];
+    $titulo_slide2 = $rs["titulo_slide2"];
+    $contenido_slide2 = $rs["contenido_slide2"];
+    $titulo_slide3 = $rs["titulo_slide3"];
+    $contenido_slide3 = $rs["contenido_slide3"];
+  }
+
+  $listado = "select * from servicios_destacados";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_destacados = $rs["titulo_destacados"];
+    $servicio1 = $rs["servicio1"];
+    $servicio2 = $rs["servicio2"];
+    $servicio3 = $rs["servicio3"];
+    $servicio4 = $rs["servicio4"];
+  }
+
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -42,8 +81,8 @@
         <li class="slide">
           <figure>
             <figcaption>
-              <h2>Corte y Plegado</h2>
-              <p>Lorem upsum simply is dummy </p>
+              <h2><?php echo $titulo_slide1 ?></h2>
+              <p><?php echo $contenido_slide1 ?> </p>
             </figcaption>
             <img src="imagenes/slide/1.jpg">
           </figure>
@@ -51,8 +90,8 @@
         <li class="slide">
           <figure>
             <figcaption>
-              <h2>Carpinteria Metálica</h2>
-              <p>Lorem upsum simply is dummy </p>
+              <h2><?php echo $titulo_slide2 ?></h2>
+              <p><?php echo $contenido_slide2 ?> </p>
             </figcaption>
             <img src="imagenes/slide/2.jpg">
           </figure>
@@ -60,8 +99,8 @@
         <li class="slide">
           <figure>
             <figcaption>
-              <h2>Pintura Electroestática</h2>
-              <p>Lorem upsum simply is dummy </p>
+              <h2><?php echo $titulo_slide3 ?></h2>
+              <p><?php echo $contenido_slide3 ?> </p>
             </figcaption>
             <img src="imagenes/slide/3.jpg">
           </figure>
@@ -71,51 +110,37 @@
   </div>
   
   <section class="nosotros">
-    <h1>CSA - Servicios Industriales</h1>
-    <p>La EXPERIENCIA de nuestros técnicos nos permite ofrecer un amplio rango de productos desde la fabricación de estructuras metálicas, muebles, soportes y todo lo necesario para la EXPOSICIÓN DE PRODUCTOS. <br>
-
-    La utilización de materias primas de calidad nos permite enfrentar todo tipo de proyectos en acero, Inox, aluminio, planchas de acero, plegables, terminaciones en madera, trupán, melamina, terciado, vidrio, acrílico y maderas nativas.</p>
+    <h1><?php echo $titulo_inicio ?></h1>
+    <p><?php echo $contenido_inicio ?></p>
     <a href="nosotros.php">VER CONTENIDO</a>
   </section>
 
   <section class="servicios">
     <div class="servicios_dentro">
-      <h3>Servicios Destacados CSA</h3>
+      <h3><?php echo $titulo_destacados ?></h3>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
+          <img src="imagenes/destacados/1.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio1 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/2.jpg">
+          <img src="imagenes/destacados/2.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio2 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/3.jpg">
+          <img src="imagenes/destacados/3.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio3 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/4.jpg">
+          <img src="imagenes/destacados/4.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio4 ?></p>
       </div>
     </div>
     <a href="servicios.php">VER TODOS</a>
@@ -125,11 +150,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -139,9 +166,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">

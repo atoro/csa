@@ -161,7 +161,7 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                 <tr>
                   <td width="88%" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                      <td height="31" class="Letras1"><a href="../imagenes/servicios/Upload_foto.php?id=<?php echo $rs["id"]; ?>" class="texto">Cambiar foto</a></td>
+                      <td height="31" class="Letras1"><a href="../imagenes/servicios/Upload_foto.php?id=<?php echo $rs["id"]; ?>" class="texto">Cambiar foto</a><a href="../imagenes/servicios/Upload_foto.php?id=<?php echo $rs["id"]; ?>" class="texto"></a></td>
                       <td class="Letras1"><div align="left" class="Letras1"> 
                       
 
@@ -170,7 +170,7 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                     </tr>
                     <tr>
                       <td width="32%" rowspan="4" valign="top" class="Letras1">
-                      <img src="../imagenes/servicios/<?php echo $rs["id"]; ?>.jpg" width="344" height="238"></td>
+                      <img src="../imagenes/servicios/<?php echo $rs["id"]; ?>.jpg" width="200" height="200"></td>
                       <td height="29" valign="top" class="Letras1"><div align="right" class="textoinfo"><span class="texto">Titulo:</span> &nbsp; </div></td>
                       <td valign="top">
 					  <span class="texto"><?php $texto = str_replace("\r\n","<br>",$rs["titulo_servicio"]); echo $texto ?>
@@ -191,13 +191,13 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                       </span></td>
                     </tr>
                     <tr>
-                      <td colspan="2" align="right" valign="top" class="Letras1">&nbsp;</td>
+                      <td height="115" colspan="2" align="right" valign="top" class="Letras1">&nbsp;</td>
                     </tr>
                     <tr>
-                      <td height="23" colspan="3" align="center" valign="middle" class="Letras1">
+                      <td height="35" colspan="3" align="center" valign="middle" bgcolor="#205588" class="Letras1">
                       
                       
-                      <p class="titulos">&nbsp;</p>
+                      <p class="titulos2">Galería del Servicio</p>
                       </td>
                     </tr>
                   </table></td>

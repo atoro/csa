@@ -1,3 +1,24 @@
+ <?php
+  include("Conexion.php");
+  $listado = "select * from servicios_destacados";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_destacados = $rs["titulo_destacados"];
+    $servicio1 = $rs["servicio1"];
+    $servicio2 = $rs["servicio2"];
+    $servicio3 = $rs["servicio3"];
+    $servicio4 = $rs["servicio4"];
+  }
+
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -41,11 +62,11 @@
   
   <section class="nosotros">
     <h1>Contáctanos</h1>
-    <form  method="post">
+    <form action="contacto.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue">
           <input class="input" name="Nombre" type="text" placeholder="Nombre"/>
-          <input class="input" name="Telefono" type="text" placeholder="Teléfono"/>
           <input class="input" name="Mail" type="text" placeholder="E-mail"/>  
-          <textarea name="consulta" id="consulta" class="mensaje" placeholder="Mensaje"></textarea>
+          <input class="input" name="Telefono" type="text" placeholder="Teléfono"/>
+          <textarea name="Mensaje" id="Mensaje" class="mensaje" placeholder="Mensaje"></textarea>
           <input class="enviar" name="Enviar" type="submit" value="Enviar"/>
     </form>
     <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d849613.9902624615!2d-69.89919963671879!3d-33.71400345935247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCALLE+CENTRAL+N%C2%BA+55%2C+P-30+GRAN+AVENIDA+-+EL+BOSQUE+-+SANTIAGO!5e0!3m2!1ses!2scl!4v1410363175041" width="100%" height="350" frameborder="0" style="border:0"></iframe>
@@ -54,42 +75,30 @@
 
   <section class="servicios">
     <div class="servicios_dentro">
-      <h3>Servicios Destacados CSA</h3>
+      <h3><?php echo $titulo_destacados ?></h3>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
+          <img src="imagenes/destacados/1.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio1 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/2.jpg">
+          <img src="imagenes/destacados/2.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio2 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/3.jpg">
+          <img src="imagenes/destacados/3.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio3 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/4.jpg">
+          <img src="imagenes/destacados/4.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio4 ?></p>
       </div>
     </div>
     <a href="servicios.php">VER TODOS</a>
@@ -99,11 +108,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -113,9 +124,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">
@@ -184,3 +195,28 @@
 
 </body>
 </html>
+<?php
+  if ($_POST["Enviar"]){
+    $destinatario = "contacto@suempresa.cl"; // cambiar mail destinatario //
+    $nombre = $_POST["Nombre"];
+    $telefono = $_POST["Telefono"];
+    $mail = $_POST["Mail"];
+    $Telefono = $_POST["Telefono"];
+    $Mensaje = $_POST["Mensaje"];
+    $asunto = "Consulta sitio web"; 
+    $cuerpo = "
+    <table width=100% border=0 cellspacing=0 cellpadding=0>
+      <tr><td>NOMBRE: $nombre</td></tr>
+      <tr><td>TELEFONO: $telefono</td></tr>
+      <tr><td>MAIL: $mail</td></tr>
+      <tr><td>CONSULTA: $Mensaje</td></tr>
+    </table>";
+    $headers = "MIME-Version: 1.0\r\n"; 
+    $headers .= "Content-type: text/html; charset=utf-8\r\n"; 
+    $headers .= "From: $nombre <$mail>\r\n"; 
+    mail($destinatario,$asunto,$cuerpo,$headers);
+    echo "<script> alert('Su consulta fue enviada correctamente'); </script>";
+    
+    
+  }
+?>

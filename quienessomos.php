@@ -1,3 +1,35 @@
+<?php
+  include("Conexion.php");
+  $listado = "select * from nosotros";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_nosotros = $rs["titulo_nosotros"];
+    $contenido_nosotros = $rs["contenido_nosotros"];
+    $mision = $rs["mision"];
+    $contenido_mision = $rs["contenido_mision"];
+    $vision = $rs["vision"];
+    $contenido_vision = $rs["contenido_vision"];
+  }
+
+  $listado = "select * from servicios_destacados";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_destacados = $rs["titulo_destacados"];
+    $servicio1 = $rs["servicio1"];
+    $servicio2 = $rs["servicio2"];
+    $servicio3 = $rs["servicio3"];
+    $servicio4 = $rs["servicio4"];
+  }
+
+  $listado = "select * from contacto_pie";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $mail = $rs["mail"];
+    $direccion = $rs["direccion"];
+    $fono = $rs["fono"];
+  }
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -40,60 +72,44 @@
   </div>
   
   <section class="nosotros">
-    <h1>CSA - Comercial San Andrés Servicios Industriales</h1>
-    <p>La EXPERIENCIA de nuestros técnicos nos permite ofrecer un amplio rango de productos desde la fabricación de estructuras metálicas, muebles, soportes y todo lo necesario para la EXPOSICIÓN DE PRODUCTOS. <br>
-
-    La utilización de materias primas de calidad nos permite enfrentar todo tipo de proyectos en acero, Inox, aluminio, planchas de acero, plegables, terminaciones en madera, trupán, melamina, terciado, vidrio, acrílico y maderas nativas.</p>
+    <h1><?php echo $titulo_nosotros ?></h1>
+    <p><?php echo $contenido_nosotros ?></p>
     <div class="mv">
-      <h3>Nuestra Misión</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      <h3><?php echo $mision ?></h3>
+      <p><?php echo $contenido_mision ?></p>
     </div>
      <div class="mv">
-      <h3>Nuestra Visión</h3>
-      <p>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3><?php echo $vision ?></h3>
+      <p><?php echo $contenido_vision ?></p>
     </div>
   </section>
 
   <section class="servicios">
     <div class="servicios_dentro">
-      <h3>Servicios Destacados CSA</h3>
+      <h3><?php echo $titulo_destacados ?></h3>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/1.jpg">
+          <img src="imagenes/destacados/1.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio1 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/2.jpg">
+          <img src="imagenes/destacados/2.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio2 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/3.jpg">
+          <img src="imagenes/destacados/3.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio3 ?></p>
       </div>
       <div class="servicio">
         <div class="img_servicio">
-          <img src="imagenes/servicios/4.jpg">
+          <img src="imagenes/destacados/4.jpg">
         </div>
-        <p>Lorem Ipsum es 
-        simplemente el texto 
-        de relleno de las 
-        imprentas y archivos</p>
+        <p><?php echo $servicio4 ?></p>
       </div>
     </div>
     <a href="servicios.php">VER TODOS</a>
@@ -103,11 +119,13 @@
     <div class="footer_dentro">
       <div class="servicios_footer">
         <h3>Servicios</h3>
-        <p>Servicios Industriales</p>
-        <p>Pintura Electroestática</p>
-        <p>Corte y Plegado</p>
-        <p>Carpintería Metálica</p>
-        <p>Carpintería Metálica</p>
+        <?php 
+          $listado = "select * from servicios_pie";
+          $sentencia = mysql_query($listado,$conn);
+          while($rs=mysql_fetch_array($sentencia,$mibase)){
+        ?>
+        <p><?php $texto = str_replace("\r\n","<br>",$rs["servicio_pie"]); echo $texto ?></p>
+        <?php } ?>
       </div>
       <div class="servicios_footer">
         <h3>Redes Sociales</h3>
@@ -117,9 +135,9 @@
       </div>
       <div class="servicios_footer">
         <h3>Contacto</h3>
-        <p>info@suempresa.cl</p>
-        <p>Calle Central Nº55 esquina Gran Avenida, P30 - El Bosque - Santiago</p>
-        <p>Fono (2) 559 02 05</p>
+        <p><?php echo $mail ?></p>
+        <p><?php echo $direccion ?></p>
+        <p><?php echo $fono ?></p>
       </div>
       <div class="logo_footer">
         <img src="imagenes/pie.png">
