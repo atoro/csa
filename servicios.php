@@ -64,7 +64,7 @@
         </div>
         <h2><?php $texto = str_replace("\r\n","<br>",$rs["titulo_servicio"]); echo $texto ?></h2>
         <p class="p"><?php $texto = str_replace("\r\n","<br>",$rs["breve_servicio"]); echo $texto ?></p>
-        <a href="detalleservicio.php?id=<?php echo $rs["id"]; ?>">VER MÁS</a>
+        <a class="a" href="detalleservicio.php?id=<?php echo $rs["id"]; ?>">VER MÁS</a>
       </div>
       <?php } ?>
     </div>

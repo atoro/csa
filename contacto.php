@@ -101,7 +101,7 @@
         <p><?php echo $servicio4 ?></p>
       </div>
     </div>
-    <a href="servicios.php">VER TODOS</a>
+    <a class="a" href="servicios.php">VER TODOS</a>
   </section>
 
   <footer>

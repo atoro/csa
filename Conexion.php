@@ -7,5 +7,5 @@
 		if(!$mibase){
 			die("error al selecionar la base de datos");
 		}
-		
+		//Re1JGGq7Q(&B
 ?>

@@ -60,6 +60,9 @@
     .emagenic a {
         display: inline-block;
     }
+    .galeria .img {
+        width: 24%;
+    }
     .headerimg {
         width: 100%;
         background-image: url(../imagenes/slide/quienessomos.jpg);

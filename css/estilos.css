@@ -56,6 +56,19 @@ footer .footer_dentro .servicios_footer p {
 	display: block;
 	text-decoration: none;
 }
+.galeria {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.galeria .img {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+.galeria .img img {
+	width: 100%;
+}
 .headerimg {
 	width: 100%;
 	background-image: url(../imagenes/slide/quienessomos.jpg);
@@ -216,7 +229,7 @@ footer .footer_dentro .servicios_footer p {
 	padding: 40px 0;
 	text-align: center;
 }
-.servicios a {
+.servicios .a {
 	background-color: #f55818;
 	color: white;
 	border-radius: 20px;
@@ -229,7 +242,7 @@ footer .footer_dentro .servicios_footer p {
            -o-transition: all 0.2s ease-in-out;  /* Opera 10.5+ */
               transition: all 0.2s ease-in-out;
 }
-.servicios a:hover {
+.servicios .a:hover {
 	background-color: white;
 	color: #f55818;
 	border-radius: 20px;

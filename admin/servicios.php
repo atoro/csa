@@ -197,7 +197,7 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                       <td height="35" colspan="3" align="center" valign="middle" bgcolor="#205588" class="Letras1">
                       
                       
-                      <p class="titulos2">Galería del Servicio</p>
+                      <p class="titulos2"><a href="galeria.php?propiedad=<?php echo $rs["id"]; ?>" class="titulos2">Galería del Servicio</a></p>
                       </td>
                     </tr>
                   </table></td>
