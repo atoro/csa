@@ -55,7 +55,7 @@ header #menu #nav-mobile.nav-active{
 }
 
 /* MENU */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 910px) {
         
     
     header #menu {

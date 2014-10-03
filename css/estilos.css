@@ -39,6 +39,12 @@ footer .footer_dentro .servicios_footer p {
 	font-weight: 300;
 	line-height: 23px;
 }
+.a {
+	background: white;
+}
+.a:hover {
+	background: white;
+}
 .emagenic {
 	background-color: #292b34;
 	padding: 40px;

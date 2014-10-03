@@ -112,7 +112,14 @@
   <section class="nosotros">
     <h1><?php echo $titulo_inicio ?></h1>
     <p><?php echo $contenido_inicio ?></p>
-    <a href="nosotros.php">VER CONTENIDO</a>
+    <a href="quienessomos.php">VER CONTENIDO</a>
+
+    <div class="mercadopublico">
+      <p style="margin:40px 0 0 0;">estamos en</p>
+      <div class="logomercado">
+        <img src="imagenes/mercadopublico.jpg" alt="logo mercado publico">
+      </div>
+    </div>
   </section>
 
   <section class="servicios">

@@ -69,8 +69,8 @@
           <textarea name="Mensaje" id="Mensaje" class="mensaje" placeholder="Mensaje"></textarea>
           <input class="enviar" name="Enviar" type="submit" value="Enviar"/>
     </form>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d849613.9902624615!2d-69.89919963671879!3d-33.71400345935247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCALLE+CENTRAL+N%C2%BA+55%2C+P-30+GRAN+AVENIDA+-+EL+BOSQUE+-+SANTIAGO!5e0!3m2!1ses!2scl!4v1410363175041" width="100%" height="350" frameborder="0" style="border:0"></iframe>
-    <p>CALLE CENTRAL Nº 55, P-30 GRAN AVENIDA - EL BOSQUE - SANTIAGO</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3325.0896764278377!2d-70.6701011!3d-33.5510463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dbb30c764605%3A0x7958886db724c503!2sGran+Avenida+Jos%C3%A9+Miguel+Carrera+9931%2C+El+Bosque%2C+Regi%C3%B3n+Metropolitana%2C+Chile!5e0!3m2!1ses!2s!4v1411393677339" width="100%" height="350" frameborder="0" style="border:0"></iframe>
+    <p>GRAN AVENIDA JOSE MIGUEL CARRERA 9931 - EL BOSQUE - SANTIAGO</p>
   </section>
 
   <section class="servicios">
@@ -197,7 +197,7 @@
 </html>
 <?php
   if ($_POST["Enviar"]){
-    $destinatario = "contacto@suempresa.cl"; // cambiar mail destinatario //
+    $destinatario = "contacto@comercialcsa.cl"; 
     $nombre = $_POST["Nombre"];
     $telefono = $_POST["Telefono"];
     $mail = $_POST["Mail"];

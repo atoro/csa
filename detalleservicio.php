@@ -33,7 +33,7 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
  
   
-<!-- Add jQuery library -->
+	<!-- Add jQuery library -->
 	<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
 
 	<!-- Add mousewheel plugin (this is optional) -->
